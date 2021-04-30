@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.beantherepodthat.ui.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_coffeeListFragment2"
+            app:destination="@id/coffeeListFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.beantherepodthat.ui.SignUpFragment"
+        android:label="sign_up_fragment"
+        tools:layout="@layout/sign_up_fragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.beantherepodthat.ui.DashboardFragment"
+        android:label="dashboard_fragment"
+        tools:layout="@layout/dashboard_fragment" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_coffeeListFragment2"
+            app:destination="@id/coffeeListFragment2" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_coffeeDetailsFragment"
+            app:destination="@id/coffeeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coffeeDetailsFragment"
+        android:name="com.beantherepodthat.ui.CoffeeDetailsFragment"
+        android:label="coffee_details_fragment"
+        tools:layout="@layout/coffee_details_fragment" >
+        <action
+            android:id="@+id/action_coffeeDetailsFragment_to_ingredientsFragment"
+            app:destination="@id/ingredientsFragment" />
+        <action
+            android:id="@+id/action_coffeeDetailsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_coffeeDetailsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_coffeeDetailsFragment_to_coffeeListFragment2"
+            app:destination="@id/coffeeListFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/coffeeListFragment2"
+        android:name="com.beantherepodthat.ui.CoffeeListFragment"
+        android:label="coffee_list_fragment"
+        tools:layout="@layout/coffee_list_fragment" >
+        <action
+            android:id="@+id/action_coffeeListFragment2_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_coffeeListFragment2_to_coffeeDetailsFragment"
+            app:destination="@id/coffeeDetailsFragment" />
+        <action
+            android:id="@+id/action_coffeeListFragment2_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ingredientsFragment"
+        android:name="com.beantherepodthat.ui.IngredientsFragment"
+        android:label="ingredients_fragment"
+        tools:layout="@layout/ingredients_fragment" >
+        <action
+            android:id="@+id/action_ingredientsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_ingredientsFragment_to_coffeeDetailsFragment"
+            app:destination="@id/coffeeDetailsFragment" />
+        <action
+            android:id="@+id/action_ingredientsFragment_to_coffeeListFragment2"
+            app:destination="@id/coffeeListFragment2" />
+        <action
+            android:id="@+id/action_ingredientsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.beantherepodthat.ui.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_coffeeListFragment2"
+            app:destination="@id/coffeeListFragment2" />
+        <action
+            android:id="@+id/action_settingsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>

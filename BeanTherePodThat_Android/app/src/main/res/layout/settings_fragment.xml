@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical"
+    tools:context=".ui.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="2"
+        android:background="@drawable/settings_linesbackground"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_my_calendar"
+            app:tint="@color/greenBackground" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/settings_linesbackground"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/personalInformation"
+            android:textColor="@color/greenBackground" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="2"
+        android:background="@drawable/settings_linesbackground"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@android:drawable/ic_lock_idle_alarm"
+            app:tint="@color/greenBackground" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/settings_linesbackground"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/notifications"
+            android:textColor="@color/greenBackground" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="2"
+        android:background="@drawable/settings_linesbackground"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center_vertical"
+            android:src="@android:drawable/ic_menu_mapmode"
+            app:tint="@color/greenBackground" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/region"
+            android:textColor="@color/greenBackground" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="2"
+        android:background="@drawable/settings_linesbackground"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center_vertical"
+            android:src="@drawable/machineicon" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/settings_linesbackground"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/myMachines"
+            android:textColor="@color/greenBackground"
+            app:drawableTint="@color/greenBackground" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:background="@drawable/settings_linesbackground"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center_vertical"
+            android:src="@android:drawable/ic_dialog_email"
+            app:tint="@color/greenBackground" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/contactUs"
+            android:textColor="@color/greenBackground" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnSignOut"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_margin="20dp"
+        android:layout_weight="2"
+        android:background="@drawable/signoutbtn_background"
+        android:padding="10dp"
+        android:text="@string/btnSignOut"
+        android:textAllCaps="true"
+        android:textColor="@color/greenBackground"
+        app:backgroundTint="@android:color/transparent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/green_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnCoffeeList"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/greenBackground"
+            android:scrollbarThumbHorizontal="@drawable/green_background"
+            android:scrollbarThumbVertical="@drawable/green_background"
+            android:src="@drawable/bottomnav_beans"
+            android:tint="?attr/colorOnPrimary" />
+
+        <ImageButton
+            android:id="@+id/btnDashBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/greenBackground"
+            android:src="@drawable/bottomnav_graph"
+            android:tint="?attr/colorOnPrimary" />
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:alpha="0.5"
+            android:background="@color/lightGreen"
+            android:src="@drawable/bottomnav_more"
+            android:tint="?attr/colorOnPrimary" />
+    </LinearLayout>
+</LinearLayout>

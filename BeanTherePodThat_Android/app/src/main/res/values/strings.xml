@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">BeanTherePodThat</string>
+    <string name="hint_username">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="logo_content_description">Bean There Pod That</string>
+    <string name="signup_label">Sign Up</string>
+    <string name="first_name_label">First Name:</string>
+    <string name="last_name_label">Last Name:</string>
+    <string name="sign_up_link">Sign Up</string>
+    <string name="already_registered_sign_in">Already registered? Sign in</string>
+    <string name="email_label">Email:</string>
+    <string name="password_label">Password:</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="biterness">Biterness</string>
+    <string name="addtoWishlist">Return</string>
+    <string name="roast">Roast</string>
+    <string name="acidity">Acidity</string>
+    <string name="your_top_5_coffees">Your Top 5 Coffees</string>
+    <string name="your_taste_profile">Your Taste Profile</string>
+    <string name="you_may_also_enjoy">You May Also Enjoy</string>
+    <string name="body">Body</string>
+    <string name="rating">Rating</string>
+    <string name="myCoffee">My Pods</string>
+    <string name="explorePods">Explore Pods</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="btnSignOut">Sign Out</string>
+    <string name="personalInformation">Personal Information</string>
+    <string name="notifications">Notifications</string>
+    <string name="region">Region</string>
+    <string name="myMachines">My Machines</string>
+    <string name="contactUs">Contact Us</string>
+    <string name="Rating">Rate</string>
+
+</resources>

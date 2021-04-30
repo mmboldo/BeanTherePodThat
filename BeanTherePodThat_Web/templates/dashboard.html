@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<title>Bean There Pod That- Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/first.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Kristi&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+
+<body>
+
+ <!--Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="homePage" class="w3-bar-item w3-button" style="font-family: 'Reenie Beanie', cursive; color: white; margin-left: 240px; font-size: 40px">Bean There Pod That</a>
+     <!--Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="homePage" class="w3-bar-item w3-button">About Us</a>
+      <a href="registration" class="w3-bar-item w3-button">Register</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    </div>
+  </div>
+</div>
+
+ <!--Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-collapse w3-top" style="z-index:3;width:240px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <img src="static/img/logoBTPTBrown.png" class="w3-round w3-image w3-opacity-min" style="margin-left:30px" alt="Logo" width="140" height="160">
+  </div>
+  <div class="w3-large w3-text-grey" style="letter-spacing: 5px; margin-left:20px">
+    <a href="dashboard" class="w3-bar-item w3-button">Dashboard</a>
+    <a href="coffeePods" class="w3-bar-item w3-button">Coffee Pods</a>
+    <a href="{{url_for('machine.myMachine')}}" class="w3-bar-item w3-button">My Machines</a>
+    <a href="addCoffee" class="w3-bar-item w3-button">Comment a Coffee</a>
+    <a href="{{url_for('profile.displayProfile')}}" class="w3-bar-item w3-button">My Profile</a>
+    <a href="logout" class="w3-bar-item w3-button">Logout</a>
+  </div>
+</nav>
+
+ <!--Header -->
+<header class="w3-display-container w3-content w3-wide w3-opacity-min" style="max-width:1600px;min-width:500px" id="home">
+  
+</header>
+
+
+ <!--Page content -->
+<div class="w3-container w3-padding-addCoffee w3-center" id="register" style="margin-left: 180px; margin-top: 65px; vertical-align:top;">
+      <h1 style="font-family: 'Reenie Beanie', cursive; font-size: 35px;">Welcome {{session['firstName']}} to Bean There Pod That</h1>
+      
+        <div class="element" style="background:#f1e1d4">
+          <p style="text-align:center">Here is the list of your coffee pods </p> 
+         
+          {% for myCoffeesObj in myCoffees %} 
+            {% for myCoffee in myCoffeesObj['myCoffees'] %} 
+          
+             <div class="element" style="background:#b4c9cf;padding-right:5px;padding-left:5px; width:150px">
+              <h5>{{myCoffee['coffeeName']}}</h5> 
+             </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+              
+        <div class="element" style="background:#b4c9cf">
+          <p style="text-align:center">Bean There Pod That have some recommendations for you. </p> 
+         
+          {% for bestRatedCoffee in bestRatedCoffees %} 
+           
+              <p style="font-weight: bold; font-family: 'Reenie Beanie', cursive; font-size: 28px">{{bestRatedCoffee}}</p>
+           
+          {% endfor %}
+        </div>
+ 
+        <div class="ct-chart element" style="width:500px; height: 315px; background:#cfebe8">
+          
+          <p>Comments per Coffee</p>
+          <script>
+          
+              var data = {
+                // A labels array that can contain any sort of values
+                labels: [ 'Ethiopia', 'India', 'Livanto', 'Napoli', 'Ristretto'],
+                // Our series array that contains series objects or in this case series data arrays
+                series: [['{{ethiopiaCounts}}', '{{melozioCounts}}', '{{altissioCounts}}', '{{altodolceCounts}}', '{{livantoCounts}}']]
+              };
+
+              var options = {
+                width: 500,
+                height: 240
+              }
+              // Create a new line chart object where as first parameter we pass in a selector
+            // that is resolving to our chart container element. The Second parameter
+            // is the actual data object.
+              new Chartist.Bar('.ct-chart', data, options);
+
+            
+          </script>
+
+        </div>
+
+        <p></p>
+        <div class="element">
+          <p style="text-align:center; color:white">Check it out the most</br>recently opinions that other </p> 
+          {% for lastOpinion in lastOpinions %} 
+          <div class="w3-container" style="margin-top:20px; margin-left:20px; margin-right: 20px; margin-bottom:20px; background-color: #b3723b; color:black; border-radius:15px 15px 15px 15px; ">
+            <p style="font-weight: bold; font-size:15px"> {{ lastOpinion['coffeeName'] }} </p>
+            <p style="text-align: center; font-size:15px">"{{ lastOpinion['coffeeOpinion'] }}" </p>
+            {% if lastOpinion['rate'] == "5" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            {% if lastOpinion['rate'] == "4" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            {% if lastOpinion['rate'] == "3" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            {% if lastOpinion['rate'] == "2" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            {% if lastOpinion['rate'] == "1" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            <p style="text-align: right; font-size:15px"> {{ lastOpinion['firstName'] }} </p>
+          </div>  
+        {%endfor%} 
+        </div>
+        
+         <div class="element" style="background:#233237">
+          <p style="text-align:center; color:white">These are <strong>{{session['firstName']}}</strong>'s last</br>coffee opinions</p> 
+          {% for myLastOpinion in myLastOpinions %} 
+          <div class="w3-container" style="margin-top:20px; margin-left:20px; margin-right: 20px; margin-bottom:20px; background-color: #b3723b; color:black; border-radius:15px 15px 15px 15px; ">
+            <p style="font-weight: bold; font-size:15px"> {{ myLastOpinion['coffeeName'] }} </p>
+            <p style="text-align: center; font-size:15px">"{{ myLastOpinion['coffeeOpinion'] }}" </p>
+            {% if myLastOpinion['rate'] == "5" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            {% if myLastOpinion['rate'] == "4" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            {% if myLastOpinion['rate'] == "3" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            {% if myLastOpinion['rate'] == "2" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            {% if myLastOpinion['rate'] == "1" %}
+              <span class="fa fa-star checked" style="color:orange; font-size:15px"></span>
+            {%endif%}
+            <p style="text-align: right; font-size:15px"> {{ myLastOpinion['firstName'] }} </p>
+          </div>  
+        {%endfor%} 
+        </div>
+        
+
+</div>
+        
+    
+</div>
+
+<footer class="w3-center w3-light-grey w3-padding-32" style="margin-left: 240px;">
+  <p><a href="https://www.BeanTherePodThat.ca" title="BeanTherePodThat" target="_blank" class="w3-hover-text-green">www.BeanTherePodThat.ca</a></p>
+</footer>
+
+</body>
+
+</html>

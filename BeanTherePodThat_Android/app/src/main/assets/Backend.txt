@@ -1,0 +1,143 @@
+from flask import Flask, render_template, request, url_for, session, redirect, flash, jsonify, Blueprint
+from flask_pymongo import PyMongo
+from pymongo import MongoClient
+from classes import *
+from flask_socketio import SocketIO, emit
+from flask_pymongo import PyMongo
+from bson.json_util import dumps, loads
+from datetime import datetime
+from datetime import timedelta
+from random import sample
+from extentsions import mongo
+
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'someSecretKey123'
+app.config['DEBUG'] = True
+# image configuration
+app.config['SECRET_KEY'] = 'someSecretKey123'
+app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
+app.config["MAX_IMAGE_FILESIZE"] = 0.5 * 1024 * 1024
+
+# secret key is used to make the client-side sessions secure
+app.config.update(dict(SECRET_KEY='yoursecretkey'))
+
+client = MongoClient('<Your MongoDB Connection String>')
+# DB name
+db = client.BeanTherePodThat
+
+app.config["MONGO_URI"] = "<Your MongoDB Connection String>"
+
+# mongo = PyMongo(app)
+mongo.init_app(app)
+
+
+#####################################
+# This part serves as Android LOGIN #
+# url should be with /api/          #
+#####################################
+@app.route('/api/login', methods=['POST'])
+def android_login():
+    users = mongo.db.users
+    android_user = users.find_one({'email' : request.form['email']})
+    password = request.form['password']
+    error = None
+    if android_user is None:
+        error = 'Unknown e-mail. Are you registered?'
+    #elif not check_password_hash(android_user['password'], password):
+    elif not android_user['password'] == password:
+        error = 'Incorrect password'
+
+    if error is None:
+        session.clear()
+        session['email'] = request.form['email']
+        return 'You login as ' + session['email']
+
+    return error
+
+
+############################################
+# This part serves as Android REGISTRATION #
+# url should be with /api/                 #
+############################################
+@app.route('/api/register', methods=['POST'])
+def android_register():
+    users = mongo.db.users
+    existing_user = users.find_one({'email' : request.form['email']})
+    email = request.form['email']
+    firstname = request.form['firstname']
+    lastname = request.form['lastname']
+    password = request.form['password']
+    error = None
+
+    if not email:
+        error = 'Email is required.'
+    elif not password:
+        error = 'Password is required.'
+    elif existing_user:
+        error = 'That email already exists!'
+
+    if error is None:
+        users.insert_one({'email' : request.form['email'], 'firstname' : request.form['firstname'], 'lastname' : request.form['lastname'], 'password' : request.form['password']})
+        session['email'] = request.form['email']
+        return 'Successfully registered!'
+
+    return error
+
+
+###################################################################################################
+# This route is responsible for providing the user's data to the Android app service.             #
+# It is used by getUserData() in beantherepodthat\retrofitApi.kt                                  #
+# Consider removing the password from the find_one query ("password":0} to improve app's security #
+###################################################################################################
+@app.route('/api/getuserdata', methods=['POST'])
+def getuserdata():
+    collection = mongo.db.users.find_one({'email':request.form['email']},{"_id":0})
+    return jsonify(collection)
+
+
+###############################################################################################
+# This route is responsible for providing the general coffee list to the Android app service. #
+# It is used by getCoffeeList() in beantherepodthat\retrofitApi.kt                            #
+###############################################################################################
+@app.route('/api/getcoffeelist', methods=['POST'])
+def getcoffeelist():
+    collection = mongo.db.coffees.find({},{'_id':0})
+    print('collection:',collection)
+    datalist = list(collection)
+    return jsonify(datalist)
+
+# Adding a coffee to my coffee list
+@app.route('/api/myCoffees', methods=['POST'])
+def android_myCoffees():
+
+    # collection = mongo.db.users.find({'email': request.form['email']})
+
+    db.users.update_one({'email':request.form['email']},{'$addToSet': {
+        'myCoffees': {
+        'id':request.form['id'],
+        'coffeeName':request.form['coffeeName'],
+        'coffeeImg':request.form['coffeeImg'],
+        'brand':request.form['brand'],
+        'description':request.form['description'],
+        'intensity':request.form['intensity'],
+        'cupSize':request.form['cupSize'],
+        'roast':request.form['roast'],
+        'acidity':request.form['acidity'],
+        'bitterness':request.form['bitterness'],
+        'body':request.form['body'],
+        'ingredients':request.form['ingredients'],
+        'machine':request.form['machine'],
+        'rate': request.form['rate'],
+        'favorite': request.form['favorite']
+        } }}, upsert=False)
+    return 'Successfully inserted Coffee!'
+
+@app.route('/file/<filename>')
+def file(filename):
+    return mongo.send_file(filename)
+
+
+if __name__ == '__main__':
+    app.secret_key = 'dev'
+    socketio.run(app,host = '0.0.0.0' ,debug=True)

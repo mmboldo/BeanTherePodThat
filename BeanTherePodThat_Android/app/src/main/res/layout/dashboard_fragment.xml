@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DashboardFragment">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/valueRoast"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/characteristics_background"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="4"
+                android:textColor="@color/loginPageBackgroundColor"
+                app:layout_constraintEnd_toStartOf="@+id/textView20"
+                app:layout_constraintTop_toBottomOf="@+id/valueBiterness" />
+
+            <TextView
+                android:id="@+id/valueBiterness"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/characteristics_background"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="4"
+                android:textColor="@color/loginPageBackgroundColor"
+                app:layout_constraintEnd_toStartOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+            <TextView
+                android:id="@+id/valueAcidity"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/characteristics_background"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="4"
+                android:textColor="@color/loginPageBackgroundColor"
+                app:layout_constraintEnd_toStartOf="@+id/textView17"
+                app:layout_constraintHorizontal_bias="0.791"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/valueBody" />
+
+            <TextView
+                android:id="@+id/valueBody"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/characteristics_background"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="4"
+                android:textColor="@color/loginPageBackgroundColor"
+                app:layout_constraintEnd_toStartOf="@+id/textView16"
+                app:layout_constraintHorizontal_bias="0.79"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/valueIntensity" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="248dp"
+                android:layout_marginLeft="248dp"
+                android:layout_marginTop="28dp"
+                android:text="Biterness"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cupSize" />
+
+            <TextView
+                android:id="@+id/cupSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="248dp"
+                android:layout_marginLeft="248dp"
+                android:layout_marginTop="28dp"
+                android:text="150 ML"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewYourTasteProfile" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="248dp"
+                android:layout_marginLeft="248dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/roast"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <TextView
+        android:id="@+id/separator1"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/coffeedetails_btnbackground"
+        android:gravity="center_horizontal|center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewTop5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/your_top_5_coffees"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewYourTop5"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.466"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTop5" />
+
+    <TextView
+        android:id="@+id/separator2"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:background="@drawable/coffeedetails_btnbackground"
+        android:gravity="center_horizontal|center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewYourTop5" />
+
+            <TextView
+                android:id="@+id/textViewYourTasteProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/your_taste_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.513"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator2" />
+
+            <TextView
+                android:id="@+id/separator3"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/coffeedetails_btnbackground"
+                android:gravity="center_horizontal|center_vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+            <TextView
+                android:id="@+id/textViewSuggestions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/you_may_also_enjoy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separator3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewSuggestions"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSuggestions" />
+
+            <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="56dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/nespresso"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="68dp"
+                android:layout_marginLeft="68dp"
+                android:layout_marginTop="28dp"
+                android:text="Intensity"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewYourTasteProfile" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="68dp"
+                android:layout_marginLeft="68dp"
+                android:layout_marginTop="28dp"
+                android:text="Body"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="68dp"
+                android:layout_marginLeft="68dp"
+                android:layout_marginTop="28dp"
+                android:text="Acidity"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <TextView
+                android:id="@+id/valueIntensity"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/characteristics_background"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="4"
+                android:textColor="@color/loginPageBackgroundColor"
+                app:layout_constraintEnd_toStartOf="@+id/textView15"
+                app:layout_constraintHorizontal_bias="0.791"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewYourTasteProfile" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                app:layout_constraintEnd_toStartOf="@+id/cupSize"
+                app:layout_constraintTop_toBottomOf="@+id/textViewYourTasteProfile"
+                app:srcCompat="@drawable/cup" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="2"
+        android:background="@drawable/green_background"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnCoffeeList"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/greenBackground"
+            android:scrollbarThumbHorizontal="@drawable/green_background"
+            android:scrollbarThumbVertical="@drawable/green_background"
+            android:src="@drawable/bottomnav_beans"
+            android:tint="?attr/colorOnPrimary" />
+
+        <ImageButton
+            android:id="@+id/btnDashBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/lightGreen"
+            android:src="@drawable/bottomnav_graph"
+            android:tint="?attr/colorOnPrimary" />
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/greenBackground"
+            android:src="@drawable/bottomnav_more"
+            android:tint="?attr/colorOnPrimary" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

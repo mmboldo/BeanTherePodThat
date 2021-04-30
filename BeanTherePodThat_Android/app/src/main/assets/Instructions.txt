@@ -1,0 +1,8 @@
+## Installation instructions
+## Note that this tutorial is just for the Android App to run independently. If you want to run the whole project, use the instructions of the GitHub repository.
+1. Store backend.py in your server of choice.
+2. Add your MongoDB connection string with password to it where is. You should paste it where you find "<Your MongoDB Connection String>".
+3. Run it. (python backend.py)
+4. Change the value of "BASE_URL", a constant located inside \utility\Constants.kt
+5. Run the app in your emulator or your own device and make your registration.
+6. Sign in to the app and enjoy.
